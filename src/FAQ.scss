@@ -1,11 +1,13 @@
+@import './variables.scss';
+
 .App {
   text-align: center;
   @at-root #{&}__logo {
-    height: 40vmin;
+    height: 20vmin;
     pointer-events: none;
   }
   @at-root #{&}__header {
-    background-color: #282c34;
+    background-color: $blue;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,21 +17,6 @@
     color: white;
   }
   @at-root #{&}__link {
-    color: #61dafb;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App__logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    color: $red;
   }
 }
