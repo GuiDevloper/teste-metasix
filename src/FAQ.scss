@@ -25,3 +25,36 @@
     box-shadow: none;
   }
 }
+
+.nav {
+  background-color: $blue;
+  height: 2rem;
+  padding: 1rem 0;
+  color: white;
+  display: flex;
+  @at-root #{&}__logo {
+    height: 100%;
+    margin-left: 35px;
+    @at-root #{&}--grow {
+      flex-grow: 1;
+    }
+  }
+  @at-root #{&}__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 130px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+  }
+  @at-root #{&}__list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @at-root #{&}__icon {
+    width: 15px;
+  }
+}
