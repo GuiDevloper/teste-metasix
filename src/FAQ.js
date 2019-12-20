@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
-  logo, th, signOut,
   search, plus, edit, trash
 } from './assets';
 import './FAQ.scss';
 import axios from 'axios';
+import Header from './Header';
 
 function Faq() {
   let [table, setTable] = useState([]);
@@ -39,10 +39,10 @@ function Faq() {
               <td></td>
               <td>{row.position}</td>
               <td>
-                <img className="nav__icon" src={edit} alt="Editar Pergunta"></img>
+                <img className="Faq__icon" src={edit} alt="Editar Pergunta"></img>
               </td>
               <td>
-                <img className="nav__icon" src={trash} alt="Excluir Pergunta"></img>
+                <img className="Faq__icon" src={trash} alt="Excluir Pergunta"></img>
               </td>
             </tr>
             <tr className="Faq__tr-body" style={{
@@ -59,29 +59,9 @@ function Faq() {
 
   return (
     <div className="Faq">
-      <nav className="nav">
-        <div className="nav__logo--grow">
-          <img src={logo} className="nav__logo" alt="logo" />
-        </div>
-        <ul className="nav__list">
-          <li className="nav__list-item">
-            <img src={th} className="nav__icon" alt="Módulos" />
-            Módulos
-          </li>
-          <li className="nav__list-item">
-            <img src={signOut} className="nav__icon" alt="signOut" />
-            Log Out
-          </li>
-        </ul>
-      </nav>
-      <header className="Faq__header">
-        <button className="Faq__btn">HOME</button>
-        <button className="Faq__btn Faq__btn--active">FAQ</button>
-        <button className="Faq__btn">LOCAIS</button>
-        <button className="Faq__btn">CATEGORIAS</button>
-      </header>
+      <Header></Header>
       <div className="Faq__title">
-        <h3 className="Faq__h3">FAQ - Perguntas Frequentes</h3>
+        <h2 className="Faq__h3">FAQ - Perguntas Frequentes</h2>
         <input className="Faq__search" placeholder="Busque por termo..." onInput={(e) => {
             let val = e.target.value.trim().toLowerCase();
             if (val !== '') {
@@ -101,14 +81,14 @@ function Faq() {
       <table className="Faq__table">
         <thead>
           <tr className="Faq__tr">
-            <th>Pergunta</th>
-            <th className="Faq__new-question">
-              <img className="nav__icon" src={plus} alt="Nova Pergunta"></img>
+            <th className="Faq__th">Pergunta</th>
+            <th className="Faq__th Faq__new-question">
+              <img className="Faq__icon" src={plus} alt="Nova Pergunta"></img>
               Nova Pergunta
             </th>
-            <th>Ordem</th>
-            <th>Editar</th>
-            <th>Excluir</th>
+            <th className="Faq__th">Ordem</th>
+            <th className="Faq__th">Editar</th>
+            <th className="Faq__th">Excluir</th>
           </tr>
         </thead>
         <tbody>

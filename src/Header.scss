@@ -1,0 +1,63 @@
+@import './variables.scss';
+
+.header {
+  color: $black;
+  margin-bottom: 40px;
+  @at-root #{&}__nav {
+    background-color: $blue;
+    height: 3rem;
+    padding: 1rem 0;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  @at-root #{&}__logo {
+    height: 45px;
+    margin-left: 45px;
+    margin-top: 5px;
+    @at-root #{&}--grow {
+      flex-grow: 1;
+    }
+  }
+  @at-root #{&}__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 155px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+  }
+  @at-root #{&}__list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+  }
+  @at-root #{&}__icon {
+    width: 20px;
+  }
+  @at-root #{&}__btn-group {
+    margin: 20px 0 0 20px;
+  }
+  @at-root #{&}__btn {
+    all: unset;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 20px 0 0 20px;
+    color: #707070;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    min-width: 45px;
+    text-align: center;
+  }
+  @at-root #{&}__btn--active {
+    background-color: $blue;
+    color: white;
+    box-shadow: none;
+    font-weight: 500;
+  }
+}
