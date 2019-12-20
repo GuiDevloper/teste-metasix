@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import logo from './assets/images/logo.png';
-import th from './assets/icons/th-solid.svg';
-import signOut from './assets/icons/sign-out-alt-solid.svg';
-import search from './assets/icons/search-solid.svg';
-import plus from './assets/icons/plus-circle-solid.svg';
-import edit from './assets/icons/edit-solid.svg';
-import trash from './assets/icons/trash-solid.svg';
+import {
+  logo, th, signOut,
+  search, plus, edit, trash
+} from './assets';
 import './FAQ.scss';
 import axios from 'axios';
 
