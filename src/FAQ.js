@@ -1,11 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './assets/images/logo.png';
 import th from './assets/icons/th-solid.svg';
 import signOut from './assets/icons/sign-out-alt-solid.svg';
 import search from './assets/icons/search-solid.svg';
+import plus from './assets/icons/plus-circle-solid.svg';
+import edit from './assets/icons/edit-solid.svg';
+import trash from './assets/icons/trash-solid.svg';
 import './FAQ.scss';
+import axios from 'axios';
 
 function Faq() {
+  let [table, setTable] = useState([]);
+  let [start, setStart] = useState(0);
+
+  function getData() {
+    axios({
+      method: 'GET',
+      url: 'https://poc.metasix.solutions/parse/classes/FAQ',
+      headers: {
+        "X-Parse-Application-Id": "br.com.metasix.poc"
+      }
+    }).then(tb => {
+      setStart(1);
+      setTable(tb.data.results);
+    });
+  }
+  if (start === 0) getData();
+
+  let [isDisplay, setDisplay] = useState(false);
+  function loadData(table) {
+    let displays = new Array(table.length).fill(false);
+    return table.map((row, i) => {
+      if (row.visible) {
+        return (
+          <React.Fragment key={row.objectId}>
+            <tr className="Faq__tr-body" onClick={() => {
+                displays[i] = !isDisplay[i];
+                setDisplay(displays);
+              }}>
+              <td>{row.question}</td>
+              <td></td>
+              <td>{row.position}</td>
+              <td>
+                <img className="nav__icon" src={edit} alt="Editar Pergunta"></img>
+              </td>
+              <td>
+                <img className="nav__icon" src={trash} alt="Excluir Pergunta"></img>
+              </td>
+            </tr>
+            <tr className="Faq__tr-body" style={{
+                display: isDisplay[i] ? 'table-row' : 'none'
+              }}>
+              <td className="Faq__answer">{row.answer}</td>
+            </tr>
+          </React.Fragment>
+        )
+      }
+      return null;
+    })
+  }
+
   return (
     <div className="Faq">
       <nav className="nav">
@@ -37,6 +91,23 @@ function Faq() {
           Buscar
         </button>
       </div>
+      <table className="Faq__table">
+        <thead>
+          <tr className="Faq__tr">
+            <th>Pergunta</th>
+            <th className="Faq__new-question">
+              <img className="nav__icon" src={plus} alt="Nova Pergunta"></img>
+              Nova Pergunta
+            </th>
+            <th>Ordem</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+          {loadData(table)}
+        </tbody>
+      </table>
     </div>
   );
 }
