@@ -82,7 +82,17 @@ function Faq() {
       </header>
       <div className="Faq__title">
         <h3 className="Faq__h3">FAQ - Perguntas Frequentes</h3>
-        <input className="Faq__search" placeholder="Busque por termo..."></input>
+        <input className="Faq__search" placeholder="Busque por termo..." onInput={(e) => {
+            let val = e.target.value.trim().toLowerCase();
+            if (val !== '') {
+              setTable(table.filter((el, i) => {
+                return el.question.toLowerCase().includes(val)
+              }));
+            } else {
+              getData();
+            }
+          }}
+        ></input>
         <button className="Faq__btn Faq__btn--active Faq__search-btn">
           <img className="Faq__search-icon" src={search} alt="search-icon"></img>
           Buscar
