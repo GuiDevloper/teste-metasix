@@ -3,7 +3,7 @@
 .Faq {
   @at-root #{&}__header {
     color: $black;
-    margin: 20px 30px;
+    margin: 20px 30px 30px;
   }
   @at-root #{&}__btn {
     all: unset;
@@ -24,17 +24,52 @@
     color: white;
     box-shadow: none;
   }
+  @at-root #{&}__title {
+    display: flex;
+    margin: 2% 30px;
+  }
+  @at-root #{&}__h3 {
+    flex-grow: 1;
+    margin: 0;
+    align-self: center;
+  }
+  @at-root #{&}__search {
+    all: unset;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    font-weight: 100;
+    font-size: 12px;
+    padding: 5px 7px;
+    height: 20px;
+    margin-right: 5px;
+    flex-grow: 0.3;
+    min-width: 120px;
+  }
+  @at-root #{&}__search-btn {
+    padding: 5px 7px;
+    font-size: 14px;
+    height: 20px;
+    margin: 0;
+    min-width: 70px;
+  }
+  @at-root #{&}__search-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
 }
 
 .nav {
   background-color: $blue;
-  height: 2rem;
+  height: 3rem;
   padding: 1rem 0;
   color: white;
   display: flex;
+  align-items: center;
   @at-root #{&}__logo {
-    height: 100%;
-    margin-left: 35px;
+    height: 45px;
+    margin-left: 45px;
+    margin-top: 5px;
     @at-root #{&}--grow {
       flex-grow: 1;
     }
@@ -43,8 +78,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 130px;
-    font-size: 14px;
+    width: 155px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
@@ -55,6 +90,6 @@
     align-items: center;
   }
   @at-root #{&}__icon {
-    width: 15px;
+    width: 20px;
   }
 }
