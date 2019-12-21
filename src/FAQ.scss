@@ -1,5 +1,7 @@
 @import './variables.scss';
 
+$rads: ('10px 0', '0 10px');
+
 .Faq {
   color: $black;
   font-size: 14px;
@@ -24,6 +26,11 @@
     flex-grow: 1;
     font-size: 28px;
   }
+  @at-root #{&}__search-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
   @at-root
   #{&}__search,
   #{&}__search-btn {
@@ -40,7 +47,7 @@
   }
   @at-root #{&}__search {
     border: 1px solid #e3e3e3;
-    flex-grow: 0.2;
+    flex-grow: 0.4;
     min-width: 120px;
   }
   @at-root #{&}__search::placeholder {
@@ -93,12 +100,56 @@
     text-align: justify;
     width: 60%;
   }
-  $rads1: '10px 0';
-  $rads2: '0 10px';
   @at-root #{&}__first-th {
-    border-radius: #{$rads1} #{$rads2};
+    border-radius: #{$rads(1)} #{$rads(2)};
   }
   @at-root #{&}__last-th {
-    border-radius: #{$rads2} #{$rads1};
+    border-radius: #{$rads(2)} #{$rads(1)};
+  }
+  @at-root #{&}__td--show-m {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .Faq {
+    @at-root #{&}__title {
+      flex-direction: column;
+      height: auto;
+      margin: 0 10px;
+    }
+    @at-root #{&}__h3 {
+      font-size: 24px;
+      text-align: center;
+      margin: 0 auto 15px;
+    }
+    @at-root #{&}__search-container {
+      display: flex;
+      width: 98%;
+    }
+    @at-root #{&}__search {
+      width: 100%;
+    }
+
+    @at-root #{&}__table {
+      margin: 0 auto;
+      width: 94%;
+    }
+    @at-root #{&}__new-question {
+      border-radius: #{$rads(2)} #{$rads(1)};
+    }
+    @at-root #{&}__td--show-m {
+      display: table-cell;
+    }
+    @at-root #{&}__th--hide-m {
+      display: none;
+    }
+    @at-root #{&}__answer {
+      width: auto;
+      padding: 15px 15px 15px 35px;
+    }
+    @at-root #{&}__icon--show-m {
+      margin: 10px 10px 10px 0;
+    }
   }
 }

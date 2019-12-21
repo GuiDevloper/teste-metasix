@@ -19,6 +19,7 @@
     height: 45px;
     margin-left: 45px;
     margin-top: 5px;
+    min-height: 30px;
     @at-root #{&}--grow {
       flex-grow: 1;
     }
@@ -57,5 +58,32 @@
     color: white;
     box-shadow: none;
     font-weight: 500;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    margin-bottom: 20px;
+    @at-root #{&}__nav {
+      height: 2rem;
+    }
+    @at-root #{&}__logo {
+      margin-left: 15%;
+      height: 10vw;
+    }
+    @at-root #{&}__list {
+      margin-right: 25px;
+      font-size: 14px;
+      width: auto;
+      flex-grow: 1;
+    }
+    @at-root #{&}__btn-group {
+      margin: 20px 0 0;
+      text-align: center;
+    }
+    @at-root #{&}__btn {
+      margin: 10px 0 0 10px;
+      padding: 5px 10px;
+    }
   }
 }
