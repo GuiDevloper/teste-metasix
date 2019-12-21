@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  logo, th, signOut
-} from './assets';
+import { logo } from './assets';
 import './Header.scss';
 
 function Header() {
@@ -13,11 +11,11 @@ function Header() {
         </div>
         <ul className="header__list">
           <li className="header__list-item">
-            <img src={th} className="header__icon" alt="Módulos" />
+            <i className="header__icon fas fa-th"></i>
             Módulos
           </li>
           <li className="header__list-item">
-            <img src={signOut} className="header__icon" alt="signOut" />
+            <i className="header__icon fas fa-sign-out-alt"></i>
             Log Out
           </li>
         </ul>

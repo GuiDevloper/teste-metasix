@@ -8,7 +8,7 @@ $rads2: '0 10px';
   font-size: 14px;
   @at-root {
     #{&}__icon {
-      width: 20px;
+      font-size: 20px;
     }
     #{&}__title,
     #{&}__search,
@@ -107,6 +107,12 @@ $rads2: '0 10px';
       display: none;
     }
   }
+}
+.fa-edit {
+  color: $blue
+}
+.fa-trash {
+  color: $red
 }
 
 @media (max-width: 600px) {

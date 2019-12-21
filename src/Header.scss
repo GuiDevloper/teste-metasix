@@ -20,7 +20,7 @@
       margin-left: 45px;
       margin-top: 5px;
       min-height: 30px;
-      #{&}--grow {
+      @at-root #{&}--grow {
         flex-grow: 1;
       }
     }
@@ -36,22 +36,24 @@
       font-weight: 500;
     }
     #{&}__icon {
-      width: 20px;
+      font-size: 20px;
     }
+    #{&}__btn,
     #{&}__btn-group {
       margin: 20px 0 0 20px;
     }
     #{&}__btn {
-      all: unset;
       border-radius: 10px;
       font-size: 14px;
       padding: 10px 15px;
-      margin: 20px 0 0 20px;
-      color: $grey;
+      color: #707070;
       cursor: pointer;
-      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-      min-width: 45px;
+      box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+      min-width: 75px;
       text-align: center;
+      border: none;
+      font-family: inherit;
+      background-color: white;
     }
     #{&}__btn--active {
       background-color: $blue;
@@ -60,7 +62,6 @@
       font-weight: 500;
     }
   }
-
 }
 
 @media (max-width: 500px) {

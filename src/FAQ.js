@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import {
-  search, plus, edit, trash
-} from './assets';
 import './FAQ.scss';
 import axios from 'axios';
 import Header from './Header';
@@ -45,10 +42,10 @@ function Faq() {
               <td></td>
               <td className="Faq__th--hide-m">{row.position}</td>
               <td className="Faq__th--hide-m">
-                <img className="Faq__icon" src={edit} alt="Editar Pergunta"></img>
+                <i className="Faq__icon Faq__icon--show-m fas fa-edit"></i>
               </td>
               <td className="Faq__th--hide-m">
-                <img className="Faq__icon" src={trash} alt="Excluir Pergunta"></img>
+                <i className="Faq__icon Faq__icon--show-m fas fa-trash"></i>
               </td>
             </tr>
             <tr className="Faq__tr-body" style={{
@@ -56,8 +53,8 @@ function Faq() {
               }}>
               <td className="Faq__answer">{row.answer}</td>
               <td className="Faq__td--show-m">
-                <img className="Faq__icon Faq__icon--show-m" src={edit} alt="Editar Pergunta"></img>
-                <img className="Faq__icon Faq__icon--show-m" src={trash} alt="Excluir Pergunta"></img>
+                <i className="Faq__icon Faq__icon--show-m fas fa-edit"></i>
+                <i className="Faq__icon Faq__icon--show-m fas fa-trash"></i>
               </td>
             </tr>
           </React.Fragment>
@@ -87,7 +84,7 @@ function Faq() {
             }}
           ></input>
           <button className="Faq__search-btn">
-            <img className="Faq__icon Faq__search-icon" src={search} alt="search-icon"></img>
+            <i className="Faq__icon Faq__search-icon fas fa-search"></i>
             BUSCAR
           </button>
         </div>
@@ -97,7 +94,7 @@ function Faq() {
           <tr className="Faq__tr">
             <th className="Faq__th Faq__first-th">Pergunta</th>
             <th className="Faq__th Faq__new-question">
-              <img className="Faq__icon Faq__plus-icon" src={plus} alt="Nova Pergunta"></img>
+              <i className="Faq__icon Faq__plus-icon fas fa-plus-circle"></i>
               <p className="Faq__th--hide-m">Nova Pergunta</p>
             </th>
             <th className="Faq__th Faq__th--hide-m">Ordem</th>
