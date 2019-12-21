@@ -22,20 +22,26 @@ function Faq() {
       setTable(tb.data.results);
     });
   }
+  // only gets data from API on first render
   if (start === 0) getData();
 
   let [isDisplay, setDisplay] = useState(false);
   function loadData(table) {
+    // temp var to define show/hide answers
     let displays = new Array(table.length).fill(false);
+    table.sort((a, b) => a.position - b.position);
     return table.map((row, i) => {
       if (row.visible) {
         return (
           <React.Fragment key={row.objectId}>
-            <tr className="Faq__tr-body" onClick={() => {
+            <tr className="Faq__tr-body">
+              <td className="Faq__first-td" onClick={() => {
+                // show/hide this specific answer
                 displays[i] = !isDisplay[i];
                 setDisplay(displays);
               }}>
-              <td>{row.question}</td>
+                {row.question}
+              </td>
               <td></td>
               <td>{row.position}</td>
               <td>
@@ -65,30 +71,32 @@ function Faq() {
         <input className="Faq__search" placeholder="Busque por termo..." onInput={(e) => {
             let val = e.target.value.trim().toLowerCase();
             if (val !== '') {
-              setTable(table.filter((el, i) => {
+              // filter questions with search terms
+              setTable(table.filter((el) => {
                 return el.question.toLowerCase().includes(val)
               }));
             } else {
+              // restart with data from API
               getData();
             }
           }}
         ></input>
-        <button className="Faq__btn Faq__btn--active Faq__search-btn">
-          <img className="Faq__search-icon" src={search} alt="search-icon"></img>
-          Buscar
+        <button className="Faq__search-btn">
+          <img className="Faq__icon Faq__search-icon" src={search} alt="search-icon"></img>
+          BUSCAR
         </button>
       </div>
       <table className="Faq__table">
         <thead>
           <tr className="Faq__tr">
-            <th className="Faq__th">Pergunta</th>
+            <th className="Faq__th Faq__first-th">Pergunta</th>
             <th className="Faq__th Faq__new-question">
-              <img className="Faq__icon" src={plus} alt="Nova Pergunta"></img>
+              <img className="Faq__icon Faq__plus-icon" src={plus} alt="Nova Pergunta"></img>
               Nova Pergunta
             </th>
             <th className="Faq__th">Ordem</th>
             <th className="Faq__th">Editar</th>
-            <th className="Faq__th">Excluir</th>
+            <th className="Faq__th Faq__last-th">Excluir</th>
           </tr>
         </thead>
         <tbody>
