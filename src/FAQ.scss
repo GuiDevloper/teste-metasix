@@ -1,155 +1,155 @@
 @import './variables.scss';
 
-$rads: ('10px 0', '0 10px');
+$rads1: '10px 0';
+$rads2: '0 10px';
 
 .Faq {
   color: $black;
   font-size: 14px;
-  @at-root #{&}__icon {
-    width: 20px;
-  }
-  @at-root
-  #{&}__title,
-  #{&}__search,
-  #{&}__search-btn,
-  #{&}__new-question {
-    display: flex;
-    align-items: center;
-    height: 35px;
-  }
+  @at-root {
+    #{&}__icon {
+      width: 20px;
+    }
+    #{&}__title,
+    #{&}__search,
+    #{&}__search-btn,
+    #{&}__new-question {
+      display: flex;
+      align-items: center;
+      height: 35px;
+    }
 
-  // title and search system styling
-  @at-root #{&}__title {
-    margin: 0 20px 10px 40px;
-  }
-  @at-root #{&}__h3 {
-    flex-grow: 1;
-    font-size: 28px;
-  }
-  @at-root #{&}__search-container {
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
-  }
-  @at-root
-  #{&}__search,
-  #{&}__search-btn {
-    padding: 0 10px;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: inherit;
-  }
-  @at-root
-  #{&}__search,
-  #{&}__search-icon,
-  #{&}__plus-icon {
-    margin-right: 10px;
-  }
-  @at-root #{&}__search {
-    border: 1px solid #e3e3e3;
-    flex-grow: 0.4;
-    min-width: 120px;
-  }
-  @at-root #{&}__search::placeholder {
-    font-style: italic;
-  }
-  @at-root #{&}__search-btn {
-    background-color: $blue;
-    color: white;
-    cursor: pointer;
-    font-weight: 500;
-    border: none;
-  }
+    // title and search system styling
+    #{&}__title {
+      margin: 0 20px 10px 40px;
+    }
+    #{&}__h3 {
+      flex-grow: 1;
+      font-size: 28px;
+    }
+    #{&}__search-container {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+    #{&}__search,
+    #{&}__search-btn {
+      padding: 0 10px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: inherit;
+    }
+    #{&}__search,
+    #{&}__search-icon,
+    #{&}__plus-icon {
+      margin-right: 10px;
+    }
+    #{&}__search {
+      border: 1px solid #e3e3e3;
+      flex-grow: 0.4;
+      min-width: 120px;
+    }
+    #{&}__search::placeholder {
+      font-style: italic;
+    }
+    #{&}__search-btn {
+      background-color: $blue;
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      border: none;
+    }
 
-  // table specific styling
-  @at-root #{&}__table {
-    width: calc(100% - 80px);
-    text-align: center;
-    margin: 0 40px;
-    border-spacing: 0 10px;
-  }
-  @at-root #{&}__tr {
-    background-color: $blue;
-    color: white;
-    height: 35px;
-  }
-  @at-root #{&}__th {
-    font-weight: 500;
-  }
-  @at-root #{&}__tr-body {
-    height: 40px;
-    box-shadow: 0px 2px 5px rgba(128, 128, 128, 0.3);
-  }
-  @at-root #{&}__new-question {
-    justify-content: center;
-  }
-  @at-root
-  #{&}__answer,
-  #{&}__first-td,
-  #{&}__first-th {
-    text-align: justify;
-  }
-  @at-root
-  #{&}__first-td,
-  #{&}__first-th {
-    padding-left: 25px;
-    cursor: pointer;
-  }
-  @at-root #{&}__answer {
-    padding: 10px 35px;
-    text-align: justify;
-    width: 60%;
-  }
-  @at-root #{&}__first-th {
-    border-radius: #{$rads(1)} #{$rads(2)};
-  }
-  @at-root #{&}__last-th {
-    border-radius: #{$rads(2)} #{$rads(1)};
-  }
-  @at-root #{&}__td--show-m {
-    display: none;
+    // table specific styling
+    #{&}__table {
+      width: calc(100% - 80px);
+      text-align: center;
+      margin: 0 40px;
+      border-spacing: 0 10px;
+    }
+    #{&}__tr {
+      background-color: $blue;
+      color: white;
+      height: 35px;
+    }
+    #{&}__th {
+      font-weight: 500;
+    }
+    #{&}__tr-body {
+      height: 40px;
+      box-shadow: 0px 2px 5px rgba(128, 128, 128, 0.3);
+    }
+    #{&}__new-question {
+      justify-content: center;
+    }
+    #{&}__answer,
+    #{&}__first-td,
+    #{&}__first-th {
+      text-align: justify;
+    }
+    #{&}__first-td,
+    #{&}__first-th {
+      padding-left: 25px;
+      cursor: pointer;
+    }
+    #{&}__answer {
+      padding: 10px 35px;
+      text-align: justify;
+      width: 60%;
+    }
+    #{&}__first-th {
+      border-radius: #{$rads1} #{$rads2};
+    }
+    #{&}__last-th {
+      border-radius: #{$rads2} #{$rads1};
+    }
+    #{&}__td--show-m {
+      display: none;
+    }
   }
 }
 
 @media (max-width: 600px) {
   .Faq {
-    @at-root #{&}__title {
-      flex-direction: column;
-      height: auto;
-      margin: 0 10px;
-    }
-    @at-root #{&}__h3 {
-      font-size: 24px;
-      text-align: center;
-      margin: 0 auto 15px;
-    }
-    @at-root #{&}__search-container {
-      display: flex;
-      width: 98%;
-    }
-    @at-root #{&}__search {
-      width: 100%;
-    }
+    @at-root {
+      #{&}__title {
+        flex-direction: column;
+        height: auto;
+        margin: 0 10px;
+      }
+      #{&}__h3 {
+        font-size: 24px;
+        text-align: center;
+        margin: 0 auto 15px;
+      }
+      #{&}__search-container {
+        display: flex;
+        width: 98%;
+      }
+      #{&}__search {
+        width: 100%;
+      }
 
-    @at-root #{&}__table {
-      margin: 0 auto;
-      width: 94%;
-    }
-    @at-root #{&}__new-question {
-      border-radius: #{$rads(2)} #{$rads(1)};
-    }
-    @at-root #{&}__td--show-m {
-      display: table-cell;
-    }
-    @at-root #{&}__th--hide-m {
-      display: none;
-    }
-    @at-root #{&}__answer {
-      width: auto;
-      padding: 15px 15px 15px 35px;
-    }
-    @at-root #{&}__icon--show-m {
-      margin: 10px 10px 10px 0;
+      #{&}__table {
+        margin: 0 auto;
+        width: 94%;
+      }
+      #{&}__new-question {
+        border-radius: #{$rads2} #{$rads1};
+      }
+      #{&}__td--show-m {
+        display: table-cell;
+      }
+      #{&}__th--hide-m {
+        display: none;
+      }
+      #{&}__answer {
+        width: auto;
+        padding: 15px 15px 15px 35px;
+      }
+      #{&}__icon--show-m {
+        margin: 10px 10px 10px 0;
+      }
     }
   }
 }
